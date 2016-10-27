@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol HtmlContent <NSObject>
+
+- (NSString*)getHtmlContent;
+
+@end
+
 @interface TumblrPost : NSObject
 
 @property (nonatomic) NSString* id;

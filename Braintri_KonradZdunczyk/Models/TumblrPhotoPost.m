@@ -54,4 +54,8 @@
     return self;
 }
 
+- (NSString *)getHtmlContent {
+    return _photoCaption;
+}
+
 @end

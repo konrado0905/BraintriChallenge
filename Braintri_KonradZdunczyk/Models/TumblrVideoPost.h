@@ -8,7 +8,7 @@
 
 #import "TumblrPost.h"
 
-@interface TumblrVideoPost : TumblrPost
+@interface TumblrVideoPost : TumblrPost <HtmlContent>
 
 @property (nonatomic) NSString* videoCaption;
 @property (nonatomic) NSString* videoSource;

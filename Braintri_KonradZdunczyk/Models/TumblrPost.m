@@ -21,8 +21,8 @@
         return [[TumblrRegularPost alloc] initWithJSON:json];
     } else if ([type isEqualToString:@"photo"]) {
         return [[TumblrPhotoPost alloc] initWithJSON:json];
-    } else if ([type isEqualToString:@"video"]) {
-        return [[TumblrVideoPost alloc] initWithJSON:json];
+//    } else if ([type isEqualToString:@"video"]) {
+//        return [[TumblrVideoPost alloc] initWithJSON:json];
     } else if ([type isEqualToString:@"quote"]) {
         return [[TumblrQuotePost alloc] initWithJSON:json];
     }

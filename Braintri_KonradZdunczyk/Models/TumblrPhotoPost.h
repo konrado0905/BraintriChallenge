@@ -9,7 +9,7 @@
 #import "TumblrPost.h"
 #import "Photo.h"
 
-@interface TumblrPhotoPost : TumblrPost
+@interface TumblrPhotoPost : TumblrPost <HtmlContent>
 
 @property (nonatomic) NSString* photoCaption;
 @property (nonatomic) int width;

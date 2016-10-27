@@ -8,7 +8,7 @@
 
 #import "TumblrPost.h"
 
-@interface TumblrQuotePost : TumblrPost
+@interface TumblrQuotePost : TumblrPost <HtmlContent>
 
 @property (nonatomic) NSString* quoteText;
 @property (nonatomic) NSString* quoteSource;

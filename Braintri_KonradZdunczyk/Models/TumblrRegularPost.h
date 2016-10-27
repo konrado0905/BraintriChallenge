@@ -8,7 +8,7 @@
 
 #import "TumblrPost.h"
 
-@interface TumblrRegularPost : TumblrPost
+@interface TumblrRegularPost : TumblrPost <HtmlContent>
 
 @property (nonatomic) NSString* regularTitle;
 @property (nonatomic) NSString* regularBody;

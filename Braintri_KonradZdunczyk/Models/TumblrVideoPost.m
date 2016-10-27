@@ -35,4 +35,8 @@
     return self;
 }
 
+- (NSString *)getHtmlContent {
+    return _videoCaption;
+}
+
 @end

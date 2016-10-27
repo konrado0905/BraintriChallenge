@@ -26,4 +26,8 @@
     return self;
 }
 
+- (NSString *)getHtmlContent {
+    return _quoteSource;
+}
+
 @end
