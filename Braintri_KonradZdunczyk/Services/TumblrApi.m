@@ -71,7 +71,21 @@
 
     NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url
                                                              completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                                                                 if (((NSHTTPURLResponse*)response).statusCode == 404) {
+                                                                     NSError* error = [NSError errorWithDomain:@"User not found" code:404 userInfo:nil];
+                                                                     errorHandler(error);
+
+                                                                     return;
+                                                                 }
+
                                                                  if (error) {
+                                                                     errorHandler(error);
+
+                                                                     return;
+                                                                 }
+
+                                                                 if (((NSHTTPURLResponse*)response).statusCode != 200) {
+                                                                     NSError* error = [NSError errorWithDomain:@"Unknown error" code:-1 userInfo:nil];
                                                                      errorHandler(error);
 
                                                                      return;
