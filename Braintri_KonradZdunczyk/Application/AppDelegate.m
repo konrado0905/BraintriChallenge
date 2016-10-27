@@ -6,7 +6,9 @@
 //  Copyright © 2016 Konrad Zdunczyk. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "SearchUserViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +18,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    UIViewController* viewController = [[SearchUserViewController alloc] init];
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = navController;
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 
