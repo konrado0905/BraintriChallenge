@@ -19,6 +19,8 @@
 
         self.quoteSource = json[@"quote-source"];
         if (!self.quoteSource) return nil;
+
+        self.typeName = @"Quote";
     }
     
     return self;

@@ -61,8 +61,14 @@
         self.format = json[@"format"];
         if (!self.format) return nil;
 
+        self.slug = json[@"slug"];
+        if (!self.slug) return nil;
+
+
         self.tags = json[@"tags"];
         if (!self.tags) return nil;
+
+        self.typeName = @"Unknown";
     }
 
     return self;

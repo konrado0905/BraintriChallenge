@@ -19,6 +19,8 @@
 
         self.regularBody = json[@"regular-body"];
         if (!self.regularBody) return nil;
+
+        self.typeName = @"Text";
     }
     
     return self;

@@ -14,6 +14,8 @@
 @property (nonatomic) NSURL* url;
 @property (nonatomic) NSDate* time;
 @property (nonatomic) NSString* format;
+@property (nonatomic) NSString* slug;
+@property (nonatomic) NSString* typeName;
 @property (nonatomic) NSArray<NSString *>* tags;
 
 + (TumblrPost*)postWithJson: (NSDictionary*)json;

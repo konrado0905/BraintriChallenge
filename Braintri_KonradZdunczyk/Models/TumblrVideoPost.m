@@ -28,6 +28,8 @@
 
         self.videoPlayer_250 = json[@"video-player-250"];
         if (!self.videoPlayer_250) return nil;
+
+        self.typeName = @"Video";
     }
     
     return self;

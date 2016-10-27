@@ -47,6 +47,8 @@
             }
         }
         self.photos = photos;
+
+        self.typeName = @"Photo";
     }
     
     return self;
