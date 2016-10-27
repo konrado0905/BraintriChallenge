@@ -2,7 +2,7 @@ platform :ios, '9.0'
 inhibit_all_warnings!
 
 target 'Braintri_KonradZdunczyk' do
-  pod 'JSONModel'
+    
 end
 
 post_install do |installer|

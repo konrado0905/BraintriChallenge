@@ -6,7 +6,7 @@
 //  Copyright © 2016 Konrad Zdunczyk. All rights reserved.
 //
 
-#import <JSONModel/JSONModel.h>
+#import <Foundation/Foundation.h>
 
 @protocol Photo;
 
