@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "SearchUserViewModel.h"
 #import "SearchUserViewController.h"
 
 @interface AppDelegate ()
@@ -18,7 +19,8 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    UIViewController* viewController = [[SearchUserViewController alloc] init];
+    SearchUserViewModel* searchUserViewModel = [[SearchUserViewModel alloc] init];
+    UIViewController* viewController = [[SearchUserViewController alloc] initWithViewModel:searchUserViewModel];
     UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:viewController];
 
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];

@@ -20,6 +20,7 @@
 		172F72291DC0E8460012A333 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 172F72281DC0E8460012A333 /* main.m */; };
 		172F72341DC0E8460012A333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172F72331DC0E8460012A333 /* Assets.xcassets */; };
 		172F72371DC0E8460012A333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172F72351DC0E8460012A333 /* LaunchScreen.storyboard */; };
+		17E2CDA91DC1977800993F28 /* SearchUserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E2CDA81DC1977800993F28 /* SearchUserViewModel.m */; };
 		7A08BCD8AD62F1DDEEDF33B0 /* libPods-Braintri_KonradZdunczyk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E387369560410811D61F15 /* libPods-Braintri_KonradZdunczyk.a */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,8 @@
 		172F72331DC0E8460012A333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		172F72361DC0E8460012A333 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		172F72381DC0E8460012A333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17E2CDA71DC1977800993F28 /* SearchUserViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserViewModel.h; sourceTree = "<group>"; };
+		17E2CDA81DC1977800993F28 /* SearchUserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserViewModel.m; sourceTree = "<group>"; };
 		F4B6F352CFDDFC5FF806A2F0 /* Pods-Braintri_KonradZdunczyk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Braintri_KonradZdunczyk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Braintri_KonradZdunczyk/Pods-Braintri_KonradZdunczyk.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,6 +114,8 @@
 			children = (
 				171EB8F81DC1798F0052F804 /* SearchUserViewController.h */,
 				171EB8F91DC1798F0052F804 /* SearchUserViewController.m */,
+				17E2CDA71DC1977800993F28 /* SearchUserViewModel.h */,
+				17E2CDA81DC1977800993F28 /* SearchUserViewModel.m */,
 			);
 			path = SearchUser;
 			sourceTree = "<group>";
@@ -295,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				171EB8E31DC138D30052F804 /* TumblrPost.m in Sources */,
+				17E2CDA91DC1977800993F28 /* SearchUserViewModel.m in Sources */,
 				171EB8FA1DC1798F0052F804 /* SearchUserViewController.m in Sources */,
 				171EB8E61DC152110052F804 /* TumblrRegularPost.m in Sources */,
 				171EB8E91DC1526E0052F804 /* TumblrPhotoPost.m in Sources */,
