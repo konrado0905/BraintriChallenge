@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "TumblrPost.h"
+
+@class TumblrPost;
 
 @interface TumblrPostCellViewModel : NSObject
+
+@property NSString* cellTitle;
+@property NSString* postTypeName;
 
 - (instancetype)initWithTumblrPost: (TumblrPost*)post;
 

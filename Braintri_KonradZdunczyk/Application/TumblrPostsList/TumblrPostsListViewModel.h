@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Tumblelog.h"
-#import "TumblrPost.h"
-#import "TumblrPostCellViewModel.h"
+
+@class Tumblelog;
+@class TumblrPostCellViewModel;
+@class TumblrPost;
 
 @interface TumblrPostsListViewModel : NSObject
 
+@property NSString* userName;
+@property NSString* userInfo;
 @property NSArray<TumblrPostCellViewModel*>* postCellViewModels;
 
 - (instancetype)initWithTumblelog: (Tumblelog*)tumblelog andTumblrPosts: (NSArray<TumblrPost*>*)posts;

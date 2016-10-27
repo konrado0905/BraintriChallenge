@@ -7,6 +7,9 @@
 //
 
 #import "TumblrPostsListViewModel.h"
+#import "Tumblelog.h"
+#import "TumblrPost.h"
+#import "TumblrPostCellViewModel.h"
 
 @interface TumblrPostsListViewModel ()
 
@@ -23,6 +26,9 @@
     if (self) {
         self.tumblelog = tumblelog;
         self.posts = posts;
+
+        _userName = _tumblelog.title;
+        _userInfo = [_tumblelog.info stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
         NSMutableArray* postsViewModel = [NSMutableArray array];
         for (TumblrPost* post in posts) {

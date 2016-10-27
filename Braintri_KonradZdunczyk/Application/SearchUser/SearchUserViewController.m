@@ -7,6 +7,8 @@
 //
 
 #import "SearchUserViewController.h"
+#import "TumblrPostsListViewController.h"
+#import "UIColor+UIColor_tumblr.h"
 #import <Masonry.h>
 #import <ReactiveObjC.h>
 
@@ -55,7 +57,7 @@
 }
 
 - (void)viewSetup {
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    [self.view setBackgroundColor:[UIColor tumblrBlueColor]];
 
     _tfUserName = [[UITextField alloc] init];
     [_tfUserName setBackgroundColor:[UIColor whiteColor]];
@@ -73,7 +75,12 @@
 }
 
 - (void)showPostsListViewControllerWithPostsListViewModel: (TumblrPostsListViewModel*) tumblrPostsListViewModel {
+    if (!tumblrPostsListViewModel) return;
+    TumblrPostsListViewController* vc = [[TumblrPostsListViewController alloc] initWithTumblrPostsListViewModel:tumblrPostsListViewModel];
 
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self showViewController:vc sender:self];
+    });
 }
 
 - (void)presentAlertControllerWithError: (NSError*)error {

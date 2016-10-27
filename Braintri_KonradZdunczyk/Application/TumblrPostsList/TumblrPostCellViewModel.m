@@ -7,6 +7,7 @@
 //
 
 #import "TumblrPostCellViewModel.h"
+#import "TumblrPost.h"
 
 @interface TumblrPostCellViewModel ()
 
@@ -21,9 +22,23 @@
 
     if (self) {
         self.post = post;
+        _cellTitle = [self cellTitleFromPost:_post];
+        _postTypeName = _post.typeName;
     }
 
     return self;
+}
+
+- (NSString*)cellTitleFromPost: (TumblrPost*)post {
+    NSString* title = [post.slug stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
+    if (!title || title.length == 0) {
+        title = @">>>No Title<<<";
+    } else {
+        title = [title stringByReplacingOccurrencesOfString:@"-" withString:@" "];
+    }
+
+    return [title capitalizedString];
 }
 
 @end
