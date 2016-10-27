@@ -35,10 +35,22 @@
 - (void)bindViewModel {
     self.title = self.viewModel.title;
     RAC(self.viewModel, searchUserName) = self.tfUserName.rac_textSignal;
-    RAC(self.btnSearch, enabled) = self.viewModel.validSearchSignal;
+    RAC(self.btnSearch, enabled) = self.viewModel.searchButtonEnableSignal;
+    RAC(self.tfUserName, enabled) = self.viewModel.searchFieldEnableSignal;
 
+    @weakify(self)
     [[_btnSearch rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
 
+        [self fetchUserAndPresentController];
+    }];
+}
+
+- (void)fetchUserAndPresentController {
+    [self.viewModel getTumblrPostsListViewModelWithCompletionHandler:^(TumblrPostsListViewModel *tumblrPostsListViewModel) {
+        [self showPostsListViewControllerWithPostsListViewModel:tumblrPostsListViewModel];
+    } errorHandler:^(NSError *error) {
+        [self presentAlertControllerWithError:error];
     }];
 }
 
@@ -58,6 +70,20 @@
     [self.view addSubview:_btnSearch];
 
     [self.view setNeedsUpdateConstraints];
+}
+
+- (void)showPostsListViewControllerWithPostsListViewModel: (TumblrPostsListViewModel*) tumblrPostsListViewModel {
+
+}
+
+- (void)presentAlertControllerWithError: (NSError*)error {
+    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"Error" message:error.domain preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+    [alertController addAction:okAction];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:alertController animated:YES completion:nil];
+    });
 }
 
 - (void)viewDidLoad {
