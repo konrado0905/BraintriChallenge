@@ -15,8 +15,8 @@
 @interface SearchUserViewController ()
 
 @property SearchUserViewModel* viewModel;
-@property UITextField* tfUserName;
-@property UIButton* btnSearch;
+@property (weak) UITextField* tfUserName;
+@property (weak) UIButton* btnSearch;
 
 @end
 
@@ -27,11 +27,31 @@
 
     if (self) {
         self.viewModel = viewModel;
-        [self viewSetup];
-        [self bindViewModel];
     }
 
     return self;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    [self viewSetup];
+    [self bindViewModel];
+}
+
+- (void)updateViewConstraints {
+    [_tfUserName mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(_tfUserName.superview);
+        make.width.equalTo(_tfUserName.superview.mas_width).dividedBy(2);
+    }];
+
+    [_btnSearch mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(_tfUserName.mas_bottom).with.offset(5);
+        make.centerX.equalTo(_tfUserName.mas_centerX);
+        make.leading.greaterThanOrEqualTo(_btnSearch.superview.mas_leadingMargin);
+    }];
+
+    [super updateViewConstraints];
 }
 
 - (void)bindViewModel {
@@ -59,17 +79,20 @@
 - (void)viewSetup {
     [self.view setBackgroundColor:[UIColor tumblrBlueColor]];
 
-    _tfUserName = [[UITextField alloc] init];
-    [_tfUserName setBackgroundColor:[UIColor whiteColor]];
-    [_tfUserName setTextAlignment:NSTextAlignmentCenter];
-    [_tfUserName setAutocorrectionType:UITextAutocorrectionTypeNo];
-    [_tfUserName setReturnKeyType:UIReturnKeySearch];
+    UITextField* tfUserName = [[UITextField alloc] init];
+    [tfUserName setBackgroundColor:[UIColor whiteColor]];
+    [tfUserName setTextAlignment:NSTextAlignmentCenter];
+    [tfUserName setAutocorrectionType:UITextAutocorrectionTypeNo];
+    [tfUserName setReturnKeyType:UIReturnKeySearch];
 
-    _btnSearch = [UIButton buttonWithType:UIButtonTypeSystem];
-    [_btnSearch setTitle:@"Search" forState:UIControlStateNormal];
+    UIButton* btnSearch = [UIButton buttonWithType:UIButtonTypeSystem];
+    [btnSearch setTitle:@"Search" forState:UIControlStateNormal];
 
-    [self.view addSubview:_tfUserName];
-    [self.view addSubview:_btnSearch];
+    [self.view addSubview:tfUserName];
+    [self.view addSubview:btnSearch];
+
+    _tfUserName = tfUserName;
+    _btnSearch = btnSearch;
 
     [self.view setNeedsUpdateConstraints];
 }
@@ -91,25 +114,6 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:alertController animated:YES completion:nil];
     });
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-}
-
-- (void)updateViewConstraints {
-    [_tfUserName mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(_tfUserName.superview);
-        make.width.equalTo(_tfUserName.superview.mas_width).dividedBy(2);
-    }];
-
-    [_btnSearch mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(_tfUserName.mas_bottom).with.offset(5);
-        make.centerX.equalTo(_tfUserName.mas_centerX);
-        make.leading.greaterThanOrEqualTo(_btnSearch.superview.mas_leadingMargin);
-    }];
-
-    [super updateViewConstraints];
 }
 
 @end

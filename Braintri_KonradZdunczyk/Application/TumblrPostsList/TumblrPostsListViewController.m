@@ -12,13 +12,13 @@
 #import "UIColor+UIColor_tumblr.h"
 #import <Masonry.h>
 
-@interface TumblrPostsListViewController () <UITableViewDataSource>
+@interface TumblrPostsListViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property TumblrPostsListViewModel* tumblrPostsListViewModel;
 
-@property UILabel* lblName;
-@property UILabel* lblInfo;
-@property UITableView* tableView;
+@property (weak) UILabel* lblName;
+@property (weak) UILabel* lblInfo;
+@property (weak) UITableView* tableView;
 
 @end
 
@@ -49,22 +49,29 @@
 - (void)viewSetup {
     [self.view setBackgroundColor:[UIColor tumblrBlueColor]];
 
-    _lblName = [[UILabel alloc] init];
-    [_lblName setTextAlignment:NSTextAlignmentCenter];
-    [_lblName setFont:[UIFont boldSystemFontOfSize:20]];
+    UILabel* lblName = [[UILabel alloc] init];
+    [lblName setTextAlignment:NSTextAlignmentCenter];
+    [lblName setFont:[UIFont boldSystemFontOfSize:20]];
 
-    _lblInfo = [[UILabel alloc] init];
-    [_lblInfo setNumberOfLines:0];
-    [_lblInfo setTextAlignment:NSTextAlignmentCenter];
-    [_lblInfo setFont:[UIFont systemFontOfSize:15]];
+    UILabel* lblInfo = [[UILabel alloc] init];
+    [lblInfo setNumberOfLines:0];
+    [lblInfo setTextAlignment:NSTextAlignmentCenter];
+    [lblInfo setFont:[UIFont systemFontOfSize:15]];
 
-    _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    _tableView.dataSource = self;
-    [_tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"postCell"];
+    UITableView* tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tableView.dataSource = self;
+    tableView.delegate = self;
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"postCell"];
 
-    [self.view addSubview:_lblName];
-    [self.view addSubview:_lblInfo];
-    [self.view addSubview:_tableView];
+    [self.view addSubview:lblName];
+    [self.view addSubview:lblInfo];
+    [self.view addSubview:tableView];
+
+    _lblName = lblName;
+    _lblInfo = lblInfo;
+    _tableView = tableView;
+
+    [self.view setNeedsUpdateConstraints];
 }
 
 - (void)updateViewConstraints {
@@ -105,6 +112,7 @@
 
     TumblrPostCellViewModel* viewModel = _tumblrPostsListViewModel.postCellViewModels[indexPath.row];
     cell.textLabel.text = viewModel.cellTitle;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
 }
