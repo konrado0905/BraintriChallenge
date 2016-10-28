@@ -12,6 +12,7 @@
 #import "UIColor+UIColor_tumblr.h"
 #import "TumblrPostViewModel.h"
 #import "TumblrPostViewController.h"
+#import "PostsListCell.h"
 #import <Masonry.h>
 
 @interface TumblrPostsListViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -63,7 +64,7 @@
     UITableView* tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     tableView.dataSource = self;
     tableView.delegate = self;
-    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"postCell"];
+    [tableView registerClass:[PostsListCell class] forCellReuseIdentifier:@"postCell"];
 
     [self.view addSubview:lblName];
     [self.view addSubview:lblInfo];
@@ -99,6 +100,12 @@
     [super updateViewConstraints];
 }
 
+- (void)configureCell: (PostsListCell*)cell withTumblrPostCellViewModel: (TumblrPostCellViewModel*)viewModel {
+    cell.lblTitle.text = viewModel.postTitle;
+    cell.lblHashtags.text = viewModel.hashtags;
+    cell.lblType.text = viewModel.postTypeName;
+}
+
 #pragma MARK: - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -111,15 +118,17 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"postCell" forIndexPath:indexPath];
-
-    TumblrPostCellViewModel* viewModel = _tumblrPostsListViewModel.postCellViewModels[indexPath.row];
-    cell.textLabel.text = viewModel.cellTitle;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
     return cell;
 }
 
 #pragma MARK: - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    TumblrPostCellViewModel* viewModel = _tumblrPostsListViewModel.postCellViewModels[indexPath.row];
+    [self configureCell:(PostsListCell*)cell withTumblrPostCellViewModel:viewModel];
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -131,6 +140,10 @@
 
         [self showViewController:vc sender:self];
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 70;
 }
 
 @end

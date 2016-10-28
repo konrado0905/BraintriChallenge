@@ -22,14 +22,15 @@
 
     if (self) {
         self.post = post;
-        _cellTitle = [self cellTitleFromPost:_post];
+        _postTitle = [self postTitleFromPost:_post];
         _postTypeName = _post.typeName;
+        _hashtags = [self hashtagsStringFromPost:_post];
     }
 
     return self;
 }
 
-- (NSString*)cellTitleFromPost: (TumblrPost*)post {
+- (NSString*)postTitleFromPost: (TumblrPost*)post {
     NSString* title = [post.slug stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
 
     if (!title || title.length == 0) {
@@ -39,6 +40,16 @@
     }
 
     return [title capitalizedString];
+}
+
+- (NSString*)hashtagsStringFromPost: (TumblrPost*)post {
+    NSMutableString* hashtags = [NSMutableString string];
+
+    for (NSString* tag in post.tags) {
+        [hashtags appendFormat:@"#%@ ", tag];
+    }
+
+    return [hashtags stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 }
 
 @end

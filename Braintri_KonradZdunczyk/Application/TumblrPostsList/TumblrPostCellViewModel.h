@@ -12,8 +12,9 @@
 
 @interface TumblrPostCellViewModel : NSObject
 
-@property NSString* cellTitle;
+@property NSString* postTitle;
 @property NSString* postTypeName;
+@property NSString* hashtags;
 
 - (instancetype)initWithTumblrPost: (TumblrPost*)post;
 
