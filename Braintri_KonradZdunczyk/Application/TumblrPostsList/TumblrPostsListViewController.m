@@ -55,11 +55,13 @@
     UILabel* lblName = [[UILabel alloc] init];
     [lblName setTextAlignment:NSTextAlignmentCenter];
     [lblName setFont:[UIFont boldSystemFontOfSize:20]];
+    [lblName setTextColor:[UIColor lightTextColor]];
 
     UILabel* lblInfo = [[UILabel alloc] init];
     [lblInfo setNumberOfLines:0];
     [lblInfo setTextAlignment:NSTextAlignmentCenter];
     [lblInfo setFont:[UIFont systemFontOfSize:15]];
+    [lblInfo setTextColor:[UIColor lightTextColor]];
 
     UITableView* tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     tableView.dataSource = self;
