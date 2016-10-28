@@ -9,7 +9,6 @@
 #import "TumblrPost.h"
 #import "TumblrRegularPost.h"
 #import "TumblrPhotoPost.h"
-#import "TumblrVideoPost.h"
 #import "TumblrQuotePost.h"
 
 @implementation TumblrPost
@@ -21,8 +20,6 @@
         return [[TumblrRegularPost alloc] initWithJSON:json];
     } else if ([type isEqualToString:@"photo"]) {
         return [[TumblrPhotoPost alloc] initWithJSON:json];
-//    } else if ([type isEqualToString:@"video"]) {
-//        return [[TumblrVideoPost alloc] initWithJSON:json];
     } else if ([type isEqualToString:@"quote"]) {
         return [[TumblrQuotePost alloc] initWithJSON:json];
     }
@@ -58,15 +55,10 @@
         self.time = [NSDate dateWithTimeIntervalSince1970:[timestamp doubleValue]];
         if (!self.time) return nil;
 
-        self.format = json[@"format"];
-        if (!self.format) return nil;
-
         self.slug = json[@"slug"];
         if (!self.slug) return nil;
 
-
         self.tags = json[@"tags"];
-        if (!self.tags) return nil;
 
         self.typeName = @"Unknown";
     }

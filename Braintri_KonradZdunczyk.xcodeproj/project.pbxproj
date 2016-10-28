@@ -13,7 +13,6 @@
 		171EB8E61DC152110052F804 /* TumblrRegularPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 171EB8E51DC152110052F804 /* TumblrRegularPost.m */; };
 		171EB8E91DC1526E0052F804 /* TumblrPhotoPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 171EB8E81DC1526E0052F804 /* TumblrPhotoPost.m */; };
 		171EB8EC1DC153550052F804 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 171EB8EB1DC153550052F804 /* Photo.m */; };
-		171EB8EF1DC153FB0052F804 /* TumblrVideoPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 171EB8EE1DC153FB0052F804 /* TumblrVideoPost.m */; };
 		171EB8F21DC154B90052F804 /* TumblrQuotePost.m in Sources */ = {isa = PBXBuildFile; fileRef = 171EB8F11DC154B90052F804 /* TumblrQuotePost.m */; };
 		171EB8F61DC16BE10052F804 /* TumblrApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 171EB8F51DC16BE10052F804 /* TumblrApi.m */; };
 		172F72291DC0E8460012A333 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 172F72281DC0E8460012A333 /* main.m */; };
@@ -46,8 +45,6 @@
 		171EB8E81DC1526E0052F804 /* TumblrPhotoPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrPhotoPost.m; sourceTree = "<group>"; };
 		171EB8EA1DC153550052F804 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		171EB8EB1DC153550052F804 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
-		171EB8ED1DC153FB0052F804 /* TumblrVideoPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrVideoPost.h; sourceTree = "<group>"; };
-		171EB8EE1DC153FB0052F804 /* TumblrVideoPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrVideoPost.m; sourceTree = "<group>"; };
 		171EB8F01DC154B90052F804 /* TumblrQuotePost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrQuotePost.h; sourceTree = "<group>"; };
 		171EB8F11DC154B90052F804 /* TumblrQuotePost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrQuotePost.m; sourceTree = "<group>"; };
 		171EB8F41DC16BE10052F804 /* TumblrApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrApi.h; sourceTree = "<group>"; };
@@ -115,8 +112,6 @@
 				171EB8E51DC152110052F804 /* TumblrRegularPost.m */,
 				171EB8E71DC1526E0052F804 /* TumblrPhotoPost.h */,
 				171EB8E81DC1526E0052F804 /* TumblrPhotoPost.m */,
-				171EB8ED1DC153FB0052F804 /* TumblrVideoPost.h */,
-				171EB8EE1DC153FB0052F804 /* TumblrVideoPost.m */,
 				171EB8F01DC154B90052F804 /* TumblrQuotePost.h */,
 				171EB8F11DC154B90052F804 /* TumblrQuotePost.m */,
 			);
@@ -399,7 +394,6 @@
 				17C8A5ED1DC3A9F70073AB84 /* TumblrPostsListViewController.m in Sources */,
 				171EB8E61DC152110052F804 /* TumblrRegularPost.m in Sources */,
 				171EB8E91DC1526E0052F804 /* TumblrPhotoPost.m in Sources */,
-				171EB8EF1DC153FB0052F804 /* TumblrVideoPost.m in Sources */,
 				171EB8F61DC16BE10052F804 /* TumblrApi.m in Sources */,
 				171EB8EC1DC153550052F804 /* Photo.m in Sources */,
 				171EB8E01DC137BA0052F804 /* Tumblelog.m in Sources */,
