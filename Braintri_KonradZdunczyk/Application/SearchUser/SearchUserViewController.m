@@ -12,11 +12,14 @@
 #import <Masonry.h>
 #import <ReactiveObjC.h>
 
-@interface SearchUserViewController ()
+@interface SearchUserViewController () <UITextFieldDelegate>
 
 @property SearchUserViewModel* viewModel;
 @property (weak) UITextField* tfUserName;
 @property (weak) UIButton* btnSearch;
+@property (weak) UIActivityIndicatorView* activityIndicator;
+
+@property BOOL searchFieldValid;
 
 @end
 
@@ -47,8 +50,14 @@
 
     [_btnSearch mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_tfUserName.mas_bottom).with.offset(5);
-        make.centerX.equalTo(_tfUserName.mas_centerX);
+        make.centerX.equalTo(_btnSearch.superview);
         make.leading.greaterThanOrEqualTo(_btnSearch.superview.mas_leadingMargin);
+    }];
+
+    [_activityIndicator mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_activityIndicator.superview);
+        make.width.height.equalTo(@50);
+        make.bottom.equalTo(_tfUserName.mas_top).with.offset(-10);
     }];
 
     [super updateViewConstraints];
@@ -59,8 +68,21 @@
     RAC(self.viewModel, searchUserName) = self.tfUserName.rac_textSignal;
     RAC(self.btnSearch, enabled) = self.viewModel.searchButtonEnableSignal;
     RAC(self.tfUserName, enabled) = self.viewModel.searchFieldEnableSignal;
+    RAC(self, searchFieldValid) = self.viewModel.validSearchSignal;
 
     @weakify(self)
+    [self.viewModel.workingSignal subscribeNext:^(NSNumber* workingNum) {
+        @strongify(self)
+
+        BOOL working = [workingNum boolValue];
+
+        if (working) {
+            [self.activityIndicator startAnimating];
+        } else {
+            [self.activityIndicator stopAnimating];
+        }
+    }];
+
     [[_btnSearch rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(id  _Nullable x) {
         @strongify(self)
 
@@ -84,15 +106,21 @@
     [tfUserName setTextAlignment:NSTextAlignmentCenter];
     [tfUserName setAutocorrectionType:UITextAutocorrectionTypeNo];
     [tfUserName setReturnKeyType:UIReturnKeySearch];
+    tfUserName.delegate = self;
 
     UIButton* btnSearch = [UIButton buttonWithType:UIButtonTypeSystem];
     [btnSearch setTitle:@"Search" forState:UIControlStateNormal];
 
+    UIActivityIndicatorView* activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [activityIndicator setHidesWhenStopped:YES];
+
     [self.view addSubview:tfUserName];
     [self.view addSubview:btnSearch];
+    [self.view addSubview:activityIndicator];
 
     _tfUserName = tfUserName;
     _btnSearch = btnSearch;
+    _activityIndicator = activityIndicator;
 
     [self.view setNeedsUpdateConstraints];
 }
@@ -114,6 +142,16 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self presentViewController:alertController animated:YES completion:nil];
     });
+}
+
+#pragma MARK: - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (!_searchFieldValid) return NO;
+
+    [self fetchUserAndPresentController];
+
+    return YES;
 }
 
 @end
