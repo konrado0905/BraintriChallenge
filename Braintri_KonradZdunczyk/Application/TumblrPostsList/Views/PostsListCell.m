@@ -32,19 +32,20 @@
 
 - (void)updateConstraints {
     [_lblTitle mas_remakeConstraints:^(MASConstraintMaker *make) {
-        make.leadingMargin.topMargin.trailingMargin.equalTo(_lblTitle.superview);
+        make.leading.top.trailing.equalTo(_lblTitle.superview);
         make.height.equalTo(@30);
     }];
 
     [_lblHashtags mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_lblTitle.mas_bottom);
-        make.leadingMargin.trailingMargin.equalTo(_lblHashtags.superview);
+        make.leading.trailing.equalTo(_lblHashtags.superview);
         make.height.equalTo(@20);
     }];
 
     [_lblType mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_lblHashtags.mas_bottom);
-        make.leadingMargin.bottomMargin.trailingMargin.equalTo(_lblType.superview);
+        make.leading.trailing.equalTo(_lblType.superview);
+        make.bottom.greaterThanOrEqualTo(_lblType.superview.mas_bottom).with.priority(750);
         make.height.equalTo(@20);
     }];
     

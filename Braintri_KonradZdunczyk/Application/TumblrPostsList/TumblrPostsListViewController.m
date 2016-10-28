@@ -84,14 +84,14 @@
         make.top.equalTo(self.mas_topLayoutGuideBottom).with.offset(5);
         make.centerX.equalTo(_lblName.superview);
         make.leadingMargin.equalTo(_lblName.superview);
-        make.width.equalTo(@20);
+        make.height.equalTo(@20);
     }];
 
     [_lblInfo mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_lblName.mas_bottom).with.offset(5);
         make.centerX.equalTo(_lblName.superview);
         make.leadingMargin.equalTo(_lblName.superview);
-        make.width.lessThanOrEqualTo(@40);
+        make.height.lessThanOrEqualTo(@40);
     }];
 
     [_tableView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -145,7 +145,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70;
+    return 80;
 }
 
 @end
