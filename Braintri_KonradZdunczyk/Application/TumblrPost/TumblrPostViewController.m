@@ -38,9 +38,14 @@
     [super viewDidLoad];
 
     [self viewSetup];
+    [self.view setNeedsUpdateConstraints];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     [self loadPhoto];
     [self loadHtml];
-    [self.view setNeedsUpdateConstraints];
+
+    [super viewDidAppear:animated];
 }
 
 - (void)updateViewConstraints {
