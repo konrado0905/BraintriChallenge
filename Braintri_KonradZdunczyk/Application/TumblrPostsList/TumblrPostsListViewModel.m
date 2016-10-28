@@ -10,6 +10,7 @@
 #import "Tumblelog.h"
 #import "TumblrPost.h"
 #import "TumblrPostCellViewModel.h"
+#import "TumblrPostViewModel.h"
 
 @interface TumblrPostsListViewModel ()
 
@@ -41,6 +42,13 @@
     }
 
     return self;
+}
+
+- (TumblrPostViewModel*)getTumblrPostViewModelForRow: (NSInteger)row {
+    if (row < 0 || row >= [_posts count]) return nil;
+
+    TumblrPost* post = _posts[row];
+    return [[TumblrPostViewModel alloc] initWithTumblrPost:post];
 }
 
 @end

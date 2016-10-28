@@ -10,6 +10,8 @@
 #import "TumblrPostsListViewModel.h"
 #import "TumblrPostCellViewModel.h"
 #import "UIColor+UIColor_tumblr.h"
+#import "TumblrPostViewModel.h"
+#import "TumblrPostViewController.h"
 #import <Masonry.h>
 
 @interface TumblrPostsListViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -117,5 +119,18 @@
     return cell;
 }
 
+#pragma MARK: - UITableViewDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
+    TumblrPostViewModel* viewModel = [_tumblrPostsListViewModel getTumblrPostViewModelForRow:indexPath.row];
+
+    if (viewModel) {
+        TumblrPostViewController* vc = [[TumblrPostViewController alloc] initWithTumblrPostViewModel:viewModel];
+
+        [self showViewController:vc sender:self];
+    }
+}
 
 @end

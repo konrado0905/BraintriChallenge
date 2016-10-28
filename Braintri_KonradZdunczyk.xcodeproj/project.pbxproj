@@ -21,6 +21,8 @@
 		172F72341DC0E8460012A333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 172F72331DC0E8460012A333 /* Assets.xcassets */; };
 		172F72371DC0E8460012A333 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 172F72351DC0E8460012A333 /* LaunchScreen.storyboard */; };
 		17C8A5C41DC298360073AB84 /* UIColor+UIColor_tumblr.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C8A5C31DC298360073AB84 /* UIColor+UIColor_tumblr.m */; };
+		17C8A5C81DC2B7C30073AB84 /* TumblrPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C8A5C71DC2B7C30073AB84 /* TumblrPostViewController.m */; };
+		17C8A5CB1DC2BC3B0073AB84 /* TumblrPostViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C8A5CA1DC2BC3B0073AB84 /* TumblrPostViewModel.m */; };
 		17E2CDA91DC1977800993F28 /* SearchUserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E2CDA81DC1977800993F28 /* SearchUserViewModel.m */; };
 		17E2CDAD1DC2158200993F28 /* TumblrPostsListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E2CDAC1DC2158200993F28 /* TumblrPostsListViewModel.m */; };
 		17E2CDB01DC219CA00993F28 /* TumblrPostCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 17E2CDAF1DC219CA00993F28 /* TumblrPostCellViewModel.m */; };
@@ -58,6 +60,10 @@
 		172F72381DC0E8460012A333 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17C8A5C21DC298360073AB84 /* UIColor+UIColor_tumblr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_tumblr.h"; sourceTree = "<group>"; };
 		17C8A5C31DC298360073AB84 /* UIColor+UIColor_tumblr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_tumblr.m"; sourceTree = "<group>"; };
+		17C8A5C61DC2B7C30073AB84 /* TumblrPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrPostViewController.h; sourceTree = "<group>"; };
+		17C8A5C71DC2B7C30073AB84 /* TumblrPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrPostViewController.m; sourceTree = "<group>"; };
+		17C8A5C91DC2BC3B0073AB84 /* TumblrPostViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrPostViewModel.h; sourceTree = "<group>"; };
+		17C8A5CA1DC2BC3B0073AB84 /* TumblrPostViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TumblrPostViewModel.m; sourceTree = "<group>"; };
 		17E2CDA71DC1977800993F28 /* SearchUserViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchUserViewModel.h; sourceTree = "<group>"; };
 		17E2CDA81DC1977800993F28 /* SearchUserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchUserViewModel.m; sourceTree = "<group>"; };
 		17E2CDAB1DC2158200993F28 /* TumblrPostsListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TumblrPostsListViewModel.h; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 				171EB8D81DC0EAEA0052F804 /* AppDelegate.m */,
 				171EB8F71DC179740052F804 /* SearchUser */,
 				17E2CDAA1DC2156600993F28 /* TumblrPostsList */,
+				17C8A5C51DC2B7A30073AB84 /* TumblrPost */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -125,10 +132,10 @@
 		171EB8F71DC179740052F804 /* SearchUser */ = {
 			isa = PBXGroup;
 			children = (
-				171EB8F81DC1798F0052F804 /* SearchUserViewController.h */,
-				171EB8F91DC1798F0052F804 /* SearchUserViewController.m */,
 				17E2CDA71DC1977800993F28 /* SearchUserViewModel.h */,
 				17E2CDA81DC1977800993F28 /* SearchUserViewModel.m */,
+				171EB8F81DC1798F0052F804 /* SearchUserViewController.h */,
+				171EB8F91DC1798F0052F804 /* SearchUserViewController.m */,
 			);
 			path = SearchUser;
 			sourceTree = "<group>";
@@ -181,6 +188,17 @@
 				17C8A5C31DC298360073AB84 /* UIColor+UIColor_tumblr.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		17C8A5C51DC2B7A30073AB84 /* TumblrPost */ = {
+			isa = PBXGroup;
+			children = (
+				17C8A5C91DC2BC3B0073AB84 /* TumblrPostViewModel.h */,
+				17C8A5CA1DC2BC3B0073AB84 /* TumblrPostViewModel.m */,
+				17C8A5C61DC2B7C30073AB84 /* TumblrPostViewController.h */,
+				17C8A5C71DC2B7C30073AB84 /* TumblrPostViewController.m */,
+			);
+			path = TumblrPost;
 			sourceTree = "<group>";
 		};
 		17E2CDAA1DC2156600993F28 /* TumblrPostsList */ = {
@@ -338,6 +356,8 @@
 				17E2CDB01DC219CA00993F28 /* TumblrPostCellViewModel.m in Sources */,
 				171EB8E31DC138D30052F804 /* TumblrPost.m in Sources */,
 				17C8A5C41DC298360073AB84 /* UIColor+UIColor_tumblr.m in Sources */,
+				17C8A5C81DC2B7C30073AB84 /* TumblrPostViewController.m in Sources */,
+				17C8A5CB1DC2BC3B0073AB84 /* TumblrPostViewModel.m in Sources */,
 				17E2CDA91DC1977800993F28 /* SearchUserViewModel.m in Sources */,
 				171EB8FA1DC1798F0052F804 /* SearchUserViewController.m in Sources */,
 				171EB8E61DC152110052F804 /* TumblrRegularPost.m in Sources */,
@@ -409,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -452,7 +472,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

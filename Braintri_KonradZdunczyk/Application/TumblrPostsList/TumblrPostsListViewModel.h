@@ -11,6 +11,7 @@
 @class Tumblelog;
 @class TumblrPostCellViewModel;
 @class TumblrPost;
+@class TumblrPostViewModel;
 
 @interface TumblrPostsListViewModel : NSObject
 
@@ -19,5 +20,6 @@
 @property NSArray<TumblrPostCellViewModel*>* postCellViewModels;
 
 - (instancetype)initWithTumblelog: (Tumblelog*)tumblelog andTumblrPosts: (NSArray<TumblrPost*>*)posts;
+- (TumblrPostViewModel*)getTumblrPostViewModelForRow: (NSInteger)row;
 
 @end
