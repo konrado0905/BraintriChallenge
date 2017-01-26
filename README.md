@@ -1,5 +1,7 @@
 # BraintriChallenge
 
+![braintrigif](https://cloud.githubusercontent.com/assets/6798398/22339379/112ad286-e3ea-11e6-9ce6-12161b525f9a.gif)
+
 ## Wymagania biznesowe:
 Zbudować na platformie iOS przeglądarkę postów serwisu Tumblr przy użyciu dostępnego publicznie API tego serwisu (https://www.tumblr.com/docs/en/api/v1). W oparciu o podaną nazwę użytkownika tego serwisu aplikacja powinna pobrać i wyświetlić listę opublikowanych przez niego postów oraz umożliwić obejrzenie ich zawartości.
 
