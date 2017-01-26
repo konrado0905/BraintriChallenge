@@ -80,6 +80,8 @@
 }
 
 - (void)viewSetup {
+    self.view.backgroundColor = [UIColor whiteColor];
+
     UIScrollView* scrollView = [[UIScrollView alloc] init];
 
     UIImageView* imageView = [[UIImageView alloc] init];
